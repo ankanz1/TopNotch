@@ -1,0 +1,75 @@
+<Window
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:Class="TopNotch.Views.Windows.IslandWindow"
+    Width="200"
+    Height="40"
+    Topmost="True"
+    TransparencyLevelHint="Acrylic"
+    CornerRadius="16"
+    Background="{StaticResource IslandBrush}"
+    BorderBrush="{StaticResource HighlightColor}"
+    ShowIcon="False"
+    ShowTitleBar="False">
+
+    <Border
+        Background="{StaticResource IslandBrush}"
+        BorderBrush="{StaticResource HighlightColor}"
+        BorderThickness="0,0,0,1"
+        CornerRadius="16"
+        Opacity="0.95">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Compact Header -->
+            <StackPanel
+                x:Name="CompactHeader"
+                Grid.Row="0"
+                Orientation="Horizontal"
+                VerticalAlignment="Center"
+                Margin="8,4,8,0"
+                Spacing="4">
+
+                <Ellipse Width="8" Height="8" Fill="{StaticResource PrimaryColor}" />
+
+                <TextBlock
+                    x:Name="TimeDisplay"
+                    Text="{Binding CurrentTime}"
+                    FontSize="11"
+                    Foreground="{StaticResource TextColor}" />
+
+                <TextBlock Text="▼"
+                           FontSize="10"
+                           Foreground="{StaticResource TextSecondaryColor}" />
+            </StackPanel>
+
+            <!-- Expanded Content -->
+            <Grid
+                x:Name="ExpandedContent"
+                Grid.Row="1"
+                Visibility="Collapsed">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Media Controls -->
+                <Border Grid.Row="0" Margin="8,4,8,0">
+                    <TextBlock Text="Now Playing"
+                               FontSize="11"
+                               Foreground="{StaticResource TextSecondaryColor}" />
+                </Border>
+
+                <Border Grid.Row="1" Margin="8,0,8,8">
+                    <TextBlock Text="Song Title"
+                               FontSize="14"
+                               Foreground="{StaticResource TextColor}" />
+                </Border>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

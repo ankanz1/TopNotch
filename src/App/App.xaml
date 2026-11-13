@@ -1,0 +1,24 @@
+<Application
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <!-- Color Palette -->
+            <SolidColorBrush x:Key="PrimaryColor" Color="#00B7FF" />
+            <SolidColorBrush x:Key="AccentColor" Color="#4F46E5" />
+            <SolidColorBrush x:Key="SuccessColor" Color="#10B981" />
+            <SolidColorBrush x:Key="WarningColor" Color="#F59E0B" />
+            <SolidColorBrush x:Key="ErrorColor" Color="#EF4444" />
+
+            <!-- Island Colors -->
+            <SolidColorBrush x:Key="IslandBrush" Color="#1A000000" />
+            <SolidColorBrush x:Key="IslandGlassColor" Color="#1A000000" />
+            <SolidColorBrush x:Key="HighlightColor" Color="#33FFFFFF" />
+            <SolidColorBrush x:Key="TextColor" Color="#FFFFFFFF" />
+            <SolidColorBrush x:Key="TextSecondaryColor" Color="#CCFFFFFF" />
+            <SolidColorBrush x:Key="IslandBackground" Color="#33000000" />
+            <SolidColorBrush x:Key="IslandBorder" Color="#33FFFFFF" />
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

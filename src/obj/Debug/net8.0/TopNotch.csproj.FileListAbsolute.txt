@@ -1,0 +1,5 @@
+/home/ankan/projects/TopNotch/src/obj/Debug/net8.0/TopNotch.csproj.AssemblyReference.cache
+/home/ankan/projects/TopNotch/src/obj/Debug/net8.0/TopNotch.GeneratedMSBuildEditorConfig.editorconfig
+/home/ankan/projects/TopNotch/src/obj/Debug/net8.0/TopNotch.AssemblyInfoInputs.cache
+/home/ankan/projects/TopNotch/src/obj/Debug/net8.0/TopNotch.AssemblyInfo.cs
+/home/ankan/projects/TopNotch/src/obj/Debug/net8.0/TopNotch.csproj.CoreCompileInputs.cache

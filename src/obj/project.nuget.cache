@@ -1,0 +1,45 @@
+{
+  "version": 2,
+  "dgSpecHash": "OXPNRtCHn0w=",
+  "success": false,
+  "projectFilePath": "/home/ankan/projects/TopNotch/src/TopNotch.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Failed to retrieve information about 'System.Text.Json.Nodes' from remote source 'https://builds.dotnet.microsoft.com/dotnet/FindPackagesById()?id='System.Text.Json.Nodes'&semVerLevel=2.0.0'.",
+      "libraryId": "System.Text.Json.Nodes"
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Failed to retrieve information about 'Avalonia.Base' from remote source 'https://builds.dotnet.microsoft.com/dotnet/FindPackagesById()?id='Avalonia.Base'&semVerLevel=2.0.0'.",
+      "libraryId": "Avalonia.Base"
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Failed to retrieve information about 'Avalonia.Controls' from remote source 'https://builds.dotnet.microsoft.com/dotnet/FindPackagesById()?id='Avalonia.Controls'&semVerLevel=2.0.0'.",
+      "libraryId": "Avalonia.Controls"
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Failed to retrieve information about 'Avalonia.Media' from remote source 'https://builds.dotnet.microsoft.com/dotnet/FindPackagesById()?id='Avalonia.Media'&semVerLevel=2.0.0'.",
+      "libraryId": "Avalonia.Media"
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Failed to retrieve information about 'Avalonia.Interactivity' from remote source 'https://builds.dotnet.microsoft.com/dotnet/FindPackagesById()?id='Avalonia.Interactivity'&semVerLevel=2.0.0'.",
+      "libraryId": "Avalonia.Interactivity"
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Failed to retrieve information about 'Avalonia.Themes.Default' from remote source 'https://builds.dotnet.microsoft.com/dotnet/FindPackagesById()?id='Avalonia.Themes.Default'&semVerLevel=2.0.0'.",
+      "libraryId": "Avalonia.Themes.Default"
+    }
+  ]
+}

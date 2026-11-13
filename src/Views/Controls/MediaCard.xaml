@@ -1,0 +1,67 @@
+<Border
+    x:Class="TopNotch.Views.Controls.MediaCard"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Background="{StaticResource IslandGlassColor}"
+    BorderBrush="{StaticResource PrimaryColor}"
+    BorderThickness="1"
+    CornerRadius="12"
+    Padding="12">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Album Art -->
+        <Border
+            x:Name="AlbumArtBorder"
+            Grid.Column="0"
+            Width="48"
+            Height="48"
+            CornerRadius="8"
+            Background="{StaticResource HighlightColor}"
+            BorderBrush="{StaticResource PrimaryColor}"
+            BorderThickness="1"
+            Margin="0,0,12,0">
+            <Image x:Name="AlbumArt"
+                   Source="{Binding ArtworkPath}"
+                   Stretch="UniformToFill"/>
+        </Border>
+
+        <StackPanel Grid.Column="1">
+            <TextBlock x:Name="SongTitle"
+                       Text="{Binding Title}"
+                       Foreground="{StaticResource TextColor}"
+                       TextTrimming="CharacterEllipses"
+                       Margin="0,0,0,4"/>
+
+            <TextBlock x:Name="ArtistAlbum"
+                       Text="{Binding Artist}"
+                       Foreground="{StaticResource TextSecondaryColor}"
+                       TextTrimming="CharacterEllipses"/>
+        </StackPanel>
+
+        <Grid Grid.Column="2" Margin="0,0,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="PreviousButton"
+                    Grid.Column="0"
+                    Content="⏮"/>
+
+            <Button x:Name="PlayPauseButton"
+                    Grid.Column="1"
+                    Content="⏯"/>
+
+            <Button x:Name="NextButton"
+                    Grid.Column="2"
+                    Content="⏭"/>
+        </Grid>
+    </Grid>
+</Border>

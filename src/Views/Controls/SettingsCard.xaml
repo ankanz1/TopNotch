@@ -1,0 +1,27 @@
+<Border
+    x:Class="TopNotch.Views.Controls.SettingsCard"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Background="{StaticResource IslandGlassColor}"
+    BorderBrush="{StaticResource HighlightColor}"
+    BorderThickness="1"
+    CornerRadius="12"
+    Padding="16">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock
+            x:Name="HeaderText"
+            Grid.Row="0"
+            Foreground="{StaticResource PrimaryColor}"
+            Margin="0,0,0,12"/>
+
+        <ContentPresenter
+            x:Name="ContentHost"
+            Grid.Row="1"/>
+    </Grid>
+</Border>
