@@ -1,45 +1,265 @@
 {
   "version": 2,
-  "dgSpecHash": "OXPNRtCHn0w=",
+  "dgSpecHash": "S/ETxzrAHdI=",
   "success": false,
-  "projectFilePath": "/home/ankan/projects/TopNotch/src/TopNotch.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\ankan\\OneDrive\\Projects\\TopNotch\\src\\TopNotch.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ankan\\.nuget\\packages\\avalonia\\11.0.10\\avalonia.11.0.10.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\avalonia.angle.windows.natives\\2.1.0.2023020321\\avalonia.angle.windows.natives.2.1.0.2023020321.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\avalonia.buildservices\\0.0.29\\avalonia.buildservices.0.0.29.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\avalonia.desktop\\11.0.10\\avalonia.desktop.11.0.10.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\avalonia.freedesktop\\11.0.10\\avalonia.freedesktop.11.0.10.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\avalonia.native\\11.0.10\\avalonia.native.11.0.10.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\avalonia.remote.protocol\\11.0.10\\avalonia.remote.protocol.11.0.10.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\avalonia.skia\\11.0.10\\avalonia.skia.11.0.10.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\avalonia.win32\\11.0.10\\avalonia.win32.11.0.10.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\avalonia.x11\\11.0.10\\avalonia.x11.11.0.10.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\communitytoolkit.mvvm\\8.2.2\\communitytoolkit.mvvm.8.2.2.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\harfbuzzsharp\\7.3.0\\harfbuzzsharp.7.3.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\harfbuzzsharp.nativeassets.linux\\7.3.0\\harfbuzzsharp.nativeassets.linux.7.3.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\harfbuzzsharp.nativeassets.macos\\7.3.0\\harfbuzzsharp.nativeassets.macos.7.3.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\harfbuzzsharp.nativeassets.webassembly\\7.3.0\\harfbuzzsharp.nativeassets.webassembly.7.3.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\harfbuzzsharp.nativeassets.win32\\7.3.0\\harfbuzzsharp.nativeassets.win32.7.3.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\microcom.runtime\\0.11.0\\microcom.runtime.0.11.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\microsoft.data.sqlite\\8.0.12\\microsoft.data.sqlite.8.0.12.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\microsoft.data.sqlite.core\\8.0.12\\microsoft.data.sqlite.core.8.0.12.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\microsoft.extensions.configuration\\9.0.0\\microsoft.extensions.configuration.9.0.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\9.0.0\\microsoft.extensions.configuration.abstractions.9.0.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\microsoft.extensions.configuration.binder\\9.0.0\\microsoft.extensions.configuration.binder.9.0.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\microsoft.extensions.configuration.commandline\\9.0.0\\microsoft.extensions.configuration.commandline.9.0.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\microsoft.extensions.configuration.environmentvariables\\9.0.0\\microsoft.extensions.configuration.environmentvariables.9.0.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\microsoft.extensions.configuration.fileextensions\\9.0.0\\microsoft.extensions.configuration.fileextensions.9.0.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\microsoft.extensions.configuration.json\\9.0.0\\microsoft.extensions.configuration.json.9.0.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\microsoft.extensions.configuration.usersecrets\\9.0.0\\microsoft.extensions.configuration.usersecrets.9.0.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\9.0.0\\microsoft.extensions.dependencyinjection.9.0.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\9.0.0\\microsoft.extensions.dependencyinjection.abstractions.9.0.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\microsoft.extensions.diagnostics\\9.0.0\\microsoft.extensions.diagnostics.9.0.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\microsoft.extensions.diagnostics.abstractions\\9.0.0\\microsoft.extensions.diagnostics.abstractions.9.0.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\9.0.0\\microsoft.extensions.fileproviders.abstractions.9.0.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\microsoft.extensions.fileproviders.physical\\9.0.0\\microsoft.extensions.fileproviders.physical.9.0.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\microsoft.extensions.filesystemglobbing\\9.0.0\\microsoft.extensions.filesystemglobbing.9.0.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\microsoft.extensions.hosting\\9.0.0\\microsoft.extensions.hosting.9.0.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\microsoft.extensions.hosting.abstractions\\9.0.0\\microsoft.extensions.hosting.abstractions.9.0.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\microsoft.extensions.logging\\9.0.0\\microsoft.extensions.logging.9.0.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\9.0.0\\microsoft.extensions.logging.abstractions.9.0.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\microsoft.extensions.logging.configuration\\9.0.0\\microsoft.extensions.logging.configuration.9.0.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\microsoft.extensions.logging.console\\9.0.0\\microsoft.extensions.logging.console.9.0.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\microsoft.extensions.logging.debug\\9.0.0\\microsoft.extensions.logging.debug.9.0.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\microsoft.extensions.logging.eventlog\\9.0.0\\microsoft.extensions.logging.eventlog.9.0.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\microsoft.extensions.logging.eventsource\\9.0.0\\microsoft.extensions.logging.eventsource.9.0.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\microsoft.extensions.options\\9.0.0\\microsoft.extensions.options.9.0.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\microsoft.extensions.options.configurationextensions\\9.0.0\\microsoft.extensions.options.configurationextensions.9.0.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\microsoft.extensions.primitives\\9.0.0\\microsoft.extensions.primitives.9.0.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\microsoft.win32.systemevents\\8.0.0\\microsoft.win32.systemevents.8.0.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\skiasharp\\2.88.7\\skiasharp.2.88.7.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\skiasharp.nativeassets.linux\\2.88.7\\skiasharp.nativeassets.linux.2.88.7.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\skiasharp.nativeassets.macos\\2.88.7\\skiasharp.nativeassets.macos.2.88.7.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\skiasharp.nativeassets.webassembly\\2.88.7\\skiasharp.nativeassets.webassembly.2.88.7.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\skiasharp.nativeassets.win32\\2.88.7\\skiasharp.nativeassets.win32.2.88.7.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.1.6\\sqlitepclraw.bundle_e_sqlite3.2.1.6.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\sqlitepclraw.core\\2.1.6\\sqlitepclraw.core.2.1.6.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.1.6\\sqlitepclraw.lib.e_sqlite3.2.1.6.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\sqlitepclraw.provider.e_sqlite3\\2.1.6\\sqlitepclraw.provider.e_sqlite3.2.1.6.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\system.componentmodel.annotations\\4.5.0\\system.componentmodel.annotations.4.5.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\system.diagnostics.diagnosticsource\\9.0.0\\system.diagnostics.diagnosticsource.9.0.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\system.diagnostics.eventlog\\9.0.0\\system.diagnostics.eventlog.9.0.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\system.drawing.common\\8.0.6\\system.drawing.common.8.0.6.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\system.io.pipelines\\9.0.0\\system.io.pipelines.9.0.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\system.net.http.json\\9.0.0\\system.net.http.json.9.0.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\system.text.encodings.web\\9.0.0\\system.text.encodings.web.9.0.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\system.text.json\\9.0.0\\system.text.json.9.0.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\system.threading.channels\\9.0.0\\system.threading.channels.9.0.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\system.threading.tasks.dataflow\\9.0.0\\system.threading.tasks.dataflow.9.0.0.nupkg.sha512",
+    "C:\\Users\\ankan\\.nuget\\packages\\tmds.dbus.protocol\\0.15.0\\tmds.dbus.protocol.0.15.0.nupkg.sha512"
+  ],
   "logs": [
     {
-      "code": "NU1301",
-      "level": "Error",
-      "message": "Failed to retrieve information about 'System.Text.Json.Nodes' from remote source 'https://builds.dotnet.microsoft.com/dotnet/FindPackagesById()?id='System.Text.Json.Nodes'&semVerLevel=2.0.0'.",
-      "libraryId": "System.Text.Json.Nodes"
+      "code": "NU1603",
+      "level": "Warning",
+      "message": "TopNotch depends on Microsoft.Extensions.Configuration (>= 8.0.10) but Microsoft.Extensions.Configuration 8.0.10 was not found. Microsoft.Extensions.Configuration 9.0.0 was resolved instead.",
+      "projectPath": "C:\\Users\\ankan\\OneDrive\\Projects\\TopNotch\\src\\TopNotch.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\ankan\\OneDrive\\Projects\\TopNotch\\src\\TopNotch.csproj",
+      "libraryId": "Microsoft.Extensions.Configuration",
+      "targetGraphs": [
+        "net8.0"
+      ]
     },
     {
-      "code": "NU1301",
-      "level": "Error",
-      "message": "Failed to retrieve information about 'Avalonia.Base' from remote source 'https://builds.dotnet.microsoft.com/dotnet/FindPackagesById()?id='Avalonia.Base'&semVerLevel=2.0.0'.",
-      "libraryId": "Avalonia.Base"
+      "code": "NU1603",
+      "level": "Warning",
+      "message": "TopNotch depends on Microsoft.Extensions.Configuration.Json (>= 8.0.10) but Microsoft.Extensions.Configuration.Json 8.0.10 was not found. Microsoft.Extensions.Configuration.Json 9.0.0 was resolved instead.",
+      "projectPath": "C:\\Users\\ankan\\OneDrive\\Projects\\TopNotch\\src\\TopNotch.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\ankan\\OneDrive\\Projects\\TopNotch\\src\\TopNotch.csproj",
+      "libraryId": "Microsoft.Extensions.Configuration.Json",
+      "targetGraphs": [
+        "net8.0"
+      ]
     },
     {
-      "code": "NU1301",
-      "level": "Error",
-      "message": "Failed to retrieve information about 'Avalonia.Controls' from remote source 'https://builds.dotnet.microsoft.com/dotnet/FindPackagesById()?id='Avalonia.Controls'&semVerLevel=2.0.0'.",
-      "libraryId": "Avalonia.Controls"
+      "code": "NU1603",
+      "level": "Warning",
+      "message": "TopNotch depends on Microsoft.Extensions.DependencyInjection (>= 8.0.10) but Microsoft.Extensions.DependencyInjection 8.0.10 was not found. Microsoft.Extensions.DependencyInjection 9.0.0 was resolved instead.",
+      "projectPath": "C:\\Users\\ankan\\OneDrive\\Projects\\TopNotch\\src\\TopNotch.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\ankan\\OneDrive\\Projects\\TopNotch\\src\\TopNotch.csproj",
+      "libraryId": "Microsoft.Extensions.DependencyInjection",
+      "targetGraphs": [
+        "net8.0"
+      ]
     },
     {
-      "code": "NU1301",
-      "level": "Error",
-      "message": "Failed to retrieve information about 'Avalonia.Media' from remote source 'https://builds.dotnet.microsoft.com/dotnet/FindPackagesById()?id='Avalonia.Media'&semVerLevel=2.0.0'.",
-      "libraryId": "Avalonia.Media"
+      "code": "NU1603",
+      "level": "Warning",
+      "message": "TopNotch depends on Microsoft.Extensions.Hosting (>= 8.0.10) but Microsoft.Extensions.Hosting 8.0.10 was not found. Microsoft.Extensions.Hosting 9.0.0 was resolved instead.",
+      "projectPath": "C:\\Users\\ankan\\OneDrive\\Projects\\TopNotch\\src\\TopNotch.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\ankan\\OneDrive\\Projects\\TopNotch\\src\\TopNotch.csproj",
+      "libraryId": "Microsoft.Extensions.Hosting",
+      "targetGraphs": [
+        "net8.0"
+      ]
     },
     {
-      "code": "NU1301",
-      "level": "Error",
-      "message": "Failed to retrieve information about 'Avalonia.Interactivity' from remote source 'https://builds.dotnet.microsoft.com/dotnet/FindPackagesById()?id='Avalonia.Interactivity'&semVerLevel=2.0.0'.",
-      "libraryId": "Avalonia.Interactivity"
+      "code": "NU1603",
+      "level": "Warning",
+      "message": "TopNotch depends on Microsoft.Extensions.Logging (>= 8.0.10) but Microsoft.Extensions.Logging 8.0.10 was not found. Microsoft.Extensions.Logging 9.0.0 was resolved instead.",
+      "projectPath": "C:\\Users\\ankan\\OneDrive\\Projects\\TopNotch\\src\\TopNotch.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\ankan\\OneDrive\\Projects\\TopNotch\\src\\TopNotch.csproj",
+      "libraryId": "Microsoft.Extensions.Logging",
+      "targetGraphs": [
+        "net8.0"
+      ]
     },
     {
-      "code": "NU1301",
+      "code": "NU1603",
+      "level": "Warning",
+      "message": "TopNotch depends on Microsoft.Extensions.Logging.Console (>= 8.0.10) but Microsoft.Extensions.Logging.Console 8.0.10 was not found. Microsoft.Extensions.Logging.Console 9.0.0 was resolved instead.",
+      "projectPath": "C:\\Users\\ankan\\OneDrive\\Projects\\TopNotch\\src\\TopNotch.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\ankan\\OneDrive\\Projects\\TopNotch\\src\\TopNotch.csproj",
+      "libraryId": "Microsoft.Extensions.Logging.Console",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "message": "TopNotch depends on System.Net.Http.Json (>= 8.0.10) but System.Net.Http.Json 8.0.10 was not found. System.Net.Http.Json 9.0.0 was resolved instead.",
+      "projectPath": "C:\\Users\\ankan\\OneDrive\\Projects\\TopNotch\\src\\TopNotch.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\ankan\\OneDrive\\Projects\\TopNotch\\src\\TopNotch.csproj",
+      "libraryId": "System.Net.Http.Json",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "message": "TopNotch depends on System.Text.Json (>= 8.0.10) but System.Text.Json 8.0.10 was not found. System.Text.Json 9.0.0 was resolved instead.",
+      "projectPath": "C:\\Users\\ankan\\OneDrive\\Projects\\TopNotch\\src\\TopNotch.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\ankan\\OneDrive\\Projects\\TopNotch\\src\\TopNotch.csproj",
+      "libraryId": "System.Text.Json",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "message": "TopNotch depends on System.Threading.Channels (>= 8.0.10) but System.Threading.Channels 8.0.10 was not found. System.Threading.Channels 9.0.0 was resolved instead.",
+      "projectPath": "C:\\Users\\ankan\\OneDrive\\Projects\\TopNotch\\src\\TopNotch.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\ankan\\OneDrive\\Projects\\TopNotch\\src\\TopNotch.csproj",
+      "libraryId": "System.Threading.Channels",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "message": "TopNotch depends on System.Threading.Tasks.Dataflow (>= 8.0.10) but System.Threading.Tasks.Dataflow 8.0.10 was not found. System.Threading.Tasks.Dataflow 9.0.0 was resolved instead.",
+      "projectPath": "C:\\Users\\ankan\\OneDrive\\Projects\\TopNotch\\src\\TopNotch.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\ankan\\OneDrive\\Projects\\TopNotch\\src\\TopNotch.csproj",
+      "libraryId": "System.Threading.Tasks.Dataflow",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1101",
       "level": "Error",
-      "message": "Failed to retrieve information about 'Avalonia.Themes.Default' from remote source 'https://builds.dotnet.microsoft.com/dotnet/FindPackagesById()?id='Avalonia.Themes.Default'&semVerLevel=2.0.0'.",
-      "libraryId": "Avalonia.Themes.Default"
+      "message": "Unable to find package Avalonia.Themes.Default. No packages exist with this id in source(s): nuget.org",
+      "projectPath": "C:\\Users\\ankan\\OneDrive\\Projects\\TopNotch\\src\\TopNotch.csproj",
+      "filePath": "C:\\Users\\ankan\\OneDrive\\Projects\\TopNotch\\src\\TopNotch.csproj",
+      "libraryId": "Avalonia.Themes.Default",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "Unable to find package Avalonia.Controls. No packages exist with this id in source(s): nuget.org",
+      "projectPath": "C:\\Users\\ankan\\OneDrive\\Projects\\TopNotch\\src\\TopNotch.csproj",
+      "filePath": "C:\\Users\\ankan\\OneDrive\\Projects\\TopNotch\\src\\TopNotch.csproj",
+      "libraryId": "Avalonia.Controls",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "Unable to find package Avalonia.Media. No packages exist with this id in source(s): nuget.org",
+      "projectPath": "C:\\Users\\ankan\\OneDrive\\Projects\\TopNotch\\src\\TopNotch.csproj",
+      "filePath": "C:\\Users\\ankan\\OneDrive\\Projects\\TopNotch\\src\\TopNotch.csproj",
+      "libraryId": "Avalonia.Media",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "Unable to find package Avalonia.Interactivity. No packages exist with this id in source(s): nuget.org",
+      "projectPath": "C:\\Users\\ankan\\OneDrive\\Projects\\TopNotch\\src\\TopNotch.csproj",
+      "filePath": "C:\\Users\\ankan\\OneDrive\\Projects\\TopNotch\\src\\TopNotch.csproj",
+      "libraryId": "Avalonia.Interactivity",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "Unable to find package Avalonia.Base. No packages exist with this id in source(s): nuget.org",
+      "projectPath": "C:\\Users\\ankan\\OneDrive\\Projects\\TopNotch\\src\\TopNotch.csproj",
+      "filePath": "C:\\Users\\ankan\\OneDrive\\Projects\\TopNotch\\src\\TopNotch.csproj",
+      "libraryId": "Avalonia.Base",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "Unable to find package System.Text.Json.Nodes. No packages exist with this id in source(s): nuget.org",
+      "projectPath": "C:\\Users\\ankan\\OneDrive\\Projects\\TopNotch\\src\\TopNotch.csproj",
+      "filePath": "C:\\Users\\ankan\\OneDrive\\Projects\\TopNotch\\src\\TopNotch.csproj",
+      "libraryId": "System.Text.Json.Nodes",
+      "targetGraphs": [
+        "net8.0"
+      ]
     }
   ]
 }
