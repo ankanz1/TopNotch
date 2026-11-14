@@ -14,13 +14,15 @@
         "outputPath": "C:\\Users\\ankan\\OneDrive\\Projects\\TopNotch\\src\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
+          "C:\\Users\\ankan\\OneDrive\\Projects\\TopNotch\\NuGet.Config",
           "C:\\Users\\ankan\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.a-v-l-o-n-i-a.io/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
@@ -50,27 +52,19 @@
               "target": "Package",
               "version": "[11.0.10, )"
             },
-            "Avalonia.Base": {
-              "target": "Package",
-              "version": "[11.0.10, )"
-            },
-            "Avalonia.Controls": {
-              "target": "Package",
-              "version": "[11.0.10, )"
-            },
             "Avalonia.Desktop": {
               "target": "Package",
               "version": "[11.0.10, )"
             },
-            "Avalonia.Interactivity": {
+            "Avalonia.Diagnostics": {
               "target": "Package",
               "version": "[11.0.10, )"
             },
-            "Avalonia.Media": {
+            "Avalonia.Fonts.Inter": {
               "target": "Package",
               "version": "[11.0.10, )"
             },
-            "Avalonia.Themes.Default": {
+            "Avalonia.Themes.Fluent": {
               "target": "Package",
               "version": "[11.0.10, )"
             },
@@ -84,55 +78,47 @@
             },
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
-              "version": "[8.0.10, )"
+              "version": "[8.0.0, )"
             },
             "Microsoft.Extensions.Configuration.Json": {
               "target": "Package",
-              "version": "[8.0.10, )"
+              "version": "[8.0.1, )"
             },
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
-              "version": "[8.0.10, )"
+              "version": "[8.0.1, )"
             },
             "Microsoft.Extensions.Hosting": {
               "target": "Package",
-              "version": "[8.0.10, )"
+              "version": "[8.0.1, )"
             },
             "Microsoft.Extensions.Logging": {
               "target": "Package",
-              "version": "[8.0.10, )"
+              "version": "[8.0.1, )"
             },
             "Microsoft.Extensions.Logging.Console": {
               "target": "Package",
-              "version": "[8.0.10, )"
+              "version": "[8.0.1, )"
             },
             "SQLitePCLRaw.bundle_e_sqlite3": {
               "target": "Package",
               "version": "[2.1.6, )"
             },
-            "System.Drawing.Common": {
-              "target": "Package",
-              "version": "[8.0.6, )"
-            },
             "System.Net.Http.Json": {
               "target": "Package",
-              "version": "[8.0.10, )"
+              "version": "[8.0.1, )"
             },
             "System.Text.Json": {
               "target": "Package",
-              "version": "[8.0.10, )"
-            },
-            "System.Text.Json.Nodes": {
-              "target": "Package",
-              "version": "[8.0.10, )"
+              "version": "[8.0.5, )"
             },
             "System.Threading.Channels": {
               "target": "Package",
-              "version": "[8.0.10, )"
+              "version": "[8.0.0, )"
             },
             "System.Threading.Tasks.Dataflow": {
               "target": "Package",
-              "version": "[8.0.10, )"
+              "version": "[8.0.0, )"
             }
           },
           "imports": [
