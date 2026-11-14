@@ -1,6 +1,94 @@
-<<<<<<< HEAD
-MIGRATION_PLAN.mdMIGRATION_STATUS.md
-=======
+[Rr]elease/
+[Xx]64/
+*.dll
+*.pdb
+
+# MonoDevelop
+*.user
+*.suo
+*.suo.user
+*.project
+*.csproj.user
+*.dbproj
+
+# Visual Studio
+.vs/
+*.VC.db
+*.VC.opendb
+*.aps
+*.cocos
+*.pdb
+*.suo
+*.tui
+*.user
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Dm]ake/
+obj/
+bin/
+*.msi
+*.mda
+build/
+bld/
+*.log
+
+# Visual Studio Code
+.vscode/
+
+# JetBrains Rider
+.idea/
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# NuGet
+# NuGet packages take precedence over .NET frameworks
+packages/
+
+# The .NET framework has a number of folders, files, and patterns
+# to mitigate when you clone repositories from GitHub or any other source
+# These are recommended to be deleted
+*.user
+*.userosscache
+*.sln.docstates
+*.pdb
+*.suo
+*.tui
+*.user
+*.sln.docstates
+
+# Build results
+[Oo]bj/
+[Bb]in/
+[Oo]ut/
+
+# Visual Studio
+.vs/
+
+# Visual Studio Code
+*.code-workspace
+
+# JetBrains Rider
+.idea/
+
+# Resharper
+*.DotSettings.user
+
+# Migration files (generated during UI migration)
 MIGRATION_PLAN.md
 MIGRATION_STATUS.md
->>>>>>> 950d9f37323ca27e76f5fc9bf5c4f0b659fa8f52

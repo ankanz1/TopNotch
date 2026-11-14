@@ -18,25 +18,21 @@
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="11.0.10" />
     <PackageReference Include="Avalonia.Desktop" Version="11.0.10" />
-    <PackageReference Include="Avalonia.Themes.Default" Version="11.0.10" />
-    <PackageReference Include="Avalonia.Controls" Version="11.0.10" />
-    <PackageReference Include="Avalonia.Media" Version="11.0.10" />
-    <PackageReference Include="Avalonia.Interactivity" Version="11.0.10" />
-    <PackageReference Include="Avalonia.Base" Version="11.0.10" />
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.10" />
+    <PackageReference Include="Avalonia.Fonts.Inter" Version="11.0.10" />
+    <PackageReference Include="Avalonia.Diagnostics" Version="11.0.10" Condition="'$(Configuration)' == 'Debug'" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
     <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.12" />
     <PackageReference Include="SQLitePCLRaw.bundle_e_sqlite3" Version="2.1.6" />
-    <PackageReference Include="System.Text.Json" Version="8.0.10" />
-    <PackageReference Include="System.Text.Json.Nodes" Version="8.0.10" />
-    <PackageReference Include="System.Drawing.Common" Version="8.0.6" />
-    <PackageReference Include="System.Net.Http.Json" Version="8.0.10" />
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.10" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.10" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.10" />
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.10" />
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.10" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.10" />
-    <PackageReference Include="System.Threading.Channels" Version="8.0.10" />
-    <PackageReference Include="System.Threading.Tasks.Dataflow" Version="8.0.10" />
+    <PackageReference Include="System.Text.Json" Version="8.0.5" />
+    <PackageReference Include="System.Net.Http.Json" Version="8.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.1" />
+    <PackageReference Include="System.Threading.Channels" Version="8.0.0" />
+    <PackageReference Include="System.Threading.Tasks.Dataflow" Version="8.0.0" />
   </ItemGroup>
 </Project>
