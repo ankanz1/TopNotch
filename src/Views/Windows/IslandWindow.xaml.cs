@@ -5,6 +5,7 @@ using Avalonia.Markup.Xaml;
 using Avalonia.Media;
 using Avalonia.Screens;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace TopNotch.Views.Windows;
@@ -49,14 +50,22 @@ public partial class IslandWindow : Window
     private void PositionWindow()
     {
         // Position at top center of primary screen
-        if (Screen.AllScreens.Count > 0)
+        // Use screen width from application bounds
+        // Note: For exact positioning, the Avalonia.Screens package provides Screen.AllScreens
+        if (Screen.AllScreens is { } screens && screens.Count > 0)
         {
-            var primaryScreen = Screen.AllScreens[0];
+            var primaryScreen = screens[0];
             var workArea = primaryScreen.WorkArea;
 
             // Center horizontally, position at top
-            X = (workArea.Width - Width) / 2;
+            X = Math.Max(0, (workArea.Width - Width) / 2);
             Y = workArea.Top + 20;
+        }
+        else
+        {
+            // Fallback: position near top-left
+            X = 0;
+            Y = 20;
         }
     }
 
