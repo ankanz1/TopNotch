@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PixelIsland")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+60870fdb0b4835007b6e4b73d03b26bb955f538f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c3b36206a28326b05473a53824da30ddc2bc3354")]
 [assembly: System.Reflection.AssemblyProductAttribute("TopNotch")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TopNotch")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

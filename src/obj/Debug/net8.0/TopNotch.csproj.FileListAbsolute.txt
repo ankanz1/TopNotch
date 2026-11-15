@@ -19,3 +19,11 @@ C:\Users\ankan\OneDrive\Projects\TopNotch\src\obj\Debug\net8.0\TopNotch.Assembly
 C:\Users\ankan\OneDrive\Projects\TopNotch\src\obj\Debug\net8.0\TopNotch.AssemblyInfo.cs
 C:\Users\ankan\OneDrive\Projects\TopNotch\src\obj\Debug\net8.0\TopNotch.csproj.CoreCompileInputs.cache
 C:\Users\ankan\OneDrive\Projects\TopNotch\src\obj\Debug\net8.0\TopNotch.sourcelink.json
+C:\Users\ankan\OneDrive\Projects\TopNotch\src\bin\Debug\net8.0\TopNotch.deps.json
+C:\Users\ankan\OneDrive\Projects\TopNotch\src\bin\Debug\net8.0\TopNotch.dll
+C:\Users\ankan\OneDrive\Projects\TopNotch\src\bin\Debug\net8.0\TopNotch.pdb
+C:\Users\ankan\OneDrive\Projects\TopNotch\src\obj\Debug\net8.0\TopNotch.dll
+C:\Users\ankan\OneDrive\Projects\TopNotch\src\obj\Debug\net8.0\refint\TopNotch.dll
+C:\Users\ankan\OneDrive\Projects\TopNotch\src\obj\Debug\net8.0\TopNotch.pdb
+C:\Users\ankan\OneDrive\Projects\TopNotch\src\obj\Debug\net8.0\ref\TopNotch.dll
+C:\Users\ankan\OneDrive\Projects\TopNotch\src\obj\Debug\net8.0\TopNotch.csproj.Up2Date

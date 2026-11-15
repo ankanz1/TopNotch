@@ -3565,7 +3565,6 @@
     "net8.0": [
       "Avalonia >= 12.1.6",
       "Avalonia.Desktop >= 12.1.6",
-      "Avalonia.Diagnostics >= 12.1.6",
       "Avalonia.Fonts.Inter >= 12.1.6",
       "Avalonia.Themes.Fluent >= 12.1.6",
       "CommunityToolkit.Mvvm >= 8.2.2",
@@ -3633,10 +3632,6 @@
             "version": "[12.1.6, )"
           },
           "Avalonia.Desktop": {
-            "target": "Package",
-            "version": "[12.1.6, )"
-          },
-          "Avalonia.Diagnostics": {
             "target": "Package",
             "version": "[12.1.6, )"
           },
@@ -3720,16 +3715,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\11.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1102",
-      "level": "Error",
-      "message": "Unable to find package Avalonia.Diagnostics with version (>= 12.1.6)\r\n  - Found 110 version(s) in nuget.org [ Nearest version: 11.3.23 ]",
-      "libraryId": "Avalonia.Diagnostics",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    }
-  ]
+  }
 }

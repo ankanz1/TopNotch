@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "HIzBkD5Puy0=",
-  "success": false,
+  "dgSpecHash": "qkbt/rmalqI=",
+  "success": true,
   "projectFilePath": "C:\\Users\\ankan\\OneDrive\\Projects\\TopNotch\\src\\TopNotch.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ankan\\.nuget\\packages\\avalonia\\12.1.6\\avalonia.12.1.6.nupkg.sha512",
@@ -72,17 +72,5 @@
     "C:\\Users\\ankan\\.nuget\\packages\\system.threading.tasks.dataflow\\8.0.0\\system.threading.tasks.dataflow.8.0.0.nupkg.sha512",
     "C:\\Users\\ankan\\.nuget\\packages\\tmds.dbus.protocol\\0.94.1\\tmds.dbus.protocol.0.94.1.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1102",
-      "level": "Error",
-      "message": "Unable to find package Avalonia.Diagnostics with version (>= 12.1.6)\r\n  - Found 110 version(s) in nuget.org [ Nearest version: 11.3.23 ]",
-      "projectPath": "C:\\Users\\ankan\\OneDrive\\Projects\\TopNotch\\src\\TopNotch.csproj",
-      "filePath": "C:\\Users\\ankan\\OneDrive\\Projects\\TopNotch\\src\\TopNotch.csproj",
-      "libraryId": "Avalonia.Diagnostics",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    }
-  ]
+  "logs": []
 }
