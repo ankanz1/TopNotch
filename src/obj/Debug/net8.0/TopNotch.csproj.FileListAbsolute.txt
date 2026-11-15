@@ -3,3 +3,10 @@
 /home/ankan/projects/TopNotch/src/obj/Debug/net8.0/TopNotch.AssemblyInfoInputs.cache
 /home/ankan/projects/TopNotch/src/obj/Debug/net8.0/TopNotch.AssemblyInfo.cs
 /home/ankan/projects/TopNotch/src/obj/Debug/net8.0/TopNotch.csproj.CoreCompileInputs.cache
+C:\Users\ankan\OneDrive\Projects\TopNotch\src\obj\Debug\net8.0\TopNotch.csproj.AssemblyReference.cache
+C:\Users\ankan\OneDrive\Projects\TopNotch\src\obj\Debug\net8.0\Avalonia\Resources.Inputs.cache
+C:\Users\ankan\OneDrive\Projects\TopNotch\src\obj\Debug\net8.0\TopNotch.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ankan\OneDrive\Projects\TopNotch\src\obj\Debug\net8.0\TopNotch.AssemblyInfoInputs.cache
+C:\Users\ankan\OneDrive\Projects\TopNotch\src\obj\Debug\net8.0\TopNotch.AssemblyInfo.cs
+C:\Users\ankan\OneDrive\Projects\TopNotch\src\obj\Debug\net8.0\TopNotch.csproj.CoreCompileInputs.cache
+C:\Users\ankan\OneDrive\Projects\TopNotch\src\obj\Debug\net8.0\TopNotch.sourcelink.json
