@@ -38,7 +38,7 @@
             <Grid
                 x:Name="ExpandedContent"
                 Grid.Row="1"
-                Visibility="Collapsed">
+                IsVisible="False">
 
                 <ContentPresenter
                     Content="{Binding CurrentView}"

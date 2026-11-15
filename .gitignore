@@ -1,7 +1,6 @@
 # Build artifacts
 bin/
-obj/
-!src/obj/
+src/obj/
 
 # NuGet
 *.packages.json
