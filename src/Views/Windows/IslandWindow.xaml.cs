@@ -1,146 +1,31 @@
 using Avalonia;
 using Avalonia.Animation;
 using Avalonia.Controls;
+using Avalonia.Input;
 using Avalonia.Markup.Xaml;
-using Avalonia.Media;
-using Avalonia.Screens;
+using Avalonia.Platform;
+using Avalonia.Threading;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TopNotch.Views.Windows;
+namespace TopNotch;
 
-public partial class IslandWindow : Window
+public partial class App : Application
 {
-    private const double CompactHeight = 40.0;
-    private const double ExpandedHeight = 200.0;
-
-    private bool _isExpanded = false;
-    private DateTime _lastInteraction = DateTime.Now;
-
-    public IslandWindow()
-    {
-        InitializeComponent();
-        InitializeTimer();
-    }
-
-    public string CurrentTime { get; set; } = DateTime.Now.ToString("h:mm tt");
-
-    private void InitializeComponent()
+    public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
     }
 
-    private void InitializeTimer()
+    public override void OnFrameworkInitializationCompleted()
     {
-        var timer = new DispatcherTimer
+        if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
-            Interval = TimeSpan.FromMinutes(1)
-        };
-        timer.Tick += (s, e) => CurrentTime = DateTime.Now.ToString("h:mm tt");
-        timer.Start();
-    }
-
-    protected override void OnOpened(EventArgs e)
-    {
-        base.OnOpened(e);
-        PositionWindow();
-    }
-
-    private void PositionWindow()
-    {
-        // Position at top center of primary screen
-        // Use screen width from application bounds
-        // Note: For exact positioning, the Avalonia.Screens package provides Screen.AllScreens
-        if (Screen.AllScreens is { } screens && screens.Count > 0)
-        {
-            var primaryScreen = screens[0];
-            var workArea = primaryScreen.WorkArea;
-
-            // Center horizontally, position at top
-            X = Math.Max(0, (workArea.Width - Width) / 2);
-            Y = workArea.Top + 20;
-        }
-        else
-        {
-            // Fallback: position near top-left
-            X = 0;
-            Y = 20;
-        }
-    }
-
-    protected override void OnPointerEntered(Avalonia.Input.PointerEventArgs e)
-    {
-        base.OnPointerEntered(e);
-        _lastInteraction = DateTime.Now;
-        _ = Task.Run(async () => await ExpandIslandAsync());
-    }
-
-    protected override void OnPointerExited(Avalonia.Input.PointerEventArgs e)
-    {
-        base.OnPointerExited(e);
-        _lastInteraction = DateTime.Now;
-    }
-
-    protected override void OnPointerPressed(Avalonia.Input.PointerPressedEventArgs e)
-    {
-        base.OnPointerPressed(e);
-        _lastInteraction = DateTime.Now;
-        _ = Task.Run(async () => await ToggleIslandAsync());
-        e.Handled = true;
-    }
-
-    public async Task ExpandIslandAsync()
-    {
-        if (_isExpanded) return;
-
-        _isExpanded = true;
-
-        if (FindName("ExpandedContent") is Grid expandedContent)
-        {
-            expandedContent.IsVisible = true;
+            var islandWindow = new Views.Windows.IslandWindow();
+            islandWindow.Show();
         }
 
-        var animation = new DoubleAnimation
-        {
-            Duration = TimeSpan.FromMilliseconds(300),
-            To = ExpandedHeight
-        };
-
-        this.ApplyAnimation(Window.HeightProperty, animation);
-        Height = ExpandedHeight;
+        base.OnFrameworkInitializationCompleted();
     }
-
-    public async Task CollapseIslandAsync()
-    {
-        if (!_isExpanded) return;
-
-        _isExpanded = false;
-
-        if (FindName("ExpandedContent") is Grid expandedContent)
-        {
-            expandedContent.IsVisible = false;
-        }
-
-        var animation = new DoubleAnimation
-        {
-            Duration = TimeSpan.FromMilliseconds(300),
-            To = CompactHeight
-        };
-
-        this.ApplyAnimation(Window.HeightProperty, animation);
-        Height = CompactHeight;
-    }
-
-    public async Task ToggleIslandAsync()
-    {
-        if (_isExpanded)
-            await CollapseIslandAsync();
-        else
-            await ExpandIslandAsync();
-    }
-
-    public void UpdatePosition() => PositionWindow();
-    public DateTime LastInteraction => _lastInteraction;
-    public bool IsExpanded => _isExpanded;
 }

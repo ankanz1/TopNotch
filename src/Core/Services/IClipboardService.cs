@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
 using TopNotch.Models;
@@ -68,8 +69,9 @@ public class ClipboardService : IClipboardService
         _isRunning = true;
         _cancellationTokenSource = new CancellationTokenSource();
 
-        // Get clipboard from Avalonia application
-        if (Application.Current?.Windows.FirstOrDefault() is Window mainWindow)
+        // Get clipboard from Avalonia application - use DesktopApplicationLifetime
+        if (Application.Current?.ApplicationLifetime is DesktopApplicationLifetime desktopLifetime &&
+            desktopLifetime.MainWindow is Window mainWindow)
         {
             _clipboard = mainWindow.Clipboard;
         }

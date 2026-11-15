@@ -42,11 +42,13 @@ public partial class MediaCard : UserControl
     {
         if (Media == null)
         {
-            if (FindName("SongTitle") is TextBlock songTitle)
+            var songTitle = this.GetTemplateChild("SongTitle") as TextBlock;
+            if (songTitle != null)
             {
                 songTitle.SetValue(TextBlock.TextProperty, "");
             }
-            if (FindName("ArtistAlbum") is TextBlock artistAlbum)
+            var artistAlbum = this.GetTemplateChild("ArtistAlbum") as TextBlock;
+            if (artistAlbum != null)
             {
                 artistAlbum.SetValue(TextBlock.TextProperty, "");
             }
@@ -55,13 +57,15 @@ public partial class MediaCard : UserControl
             return;
         }
 
-        if (FindName("SongTitle") is TextBlock songTitle)
+        var songTitle2 = this.GetTemplateChild("SongTitle") as TextBlock;
+        if (songTitle2 != null)
         {
-            songTitle.SetValue(TextBlock.TextProperty, Media.Title);
+            songTitle2.SetValue(TextBlock.TextProperty, Media.Title);
         }
-        if (FindName("ArtistAlbum") is TextBlock artistAlbum)
+        var artistAlbum2 = this.GetTemplateChild("ArtistAlbum") as TextBlock;
+        if (artistAlbum2 != null)
         {
-            artistAlbum.SetValue(TextBlock.TextProperty, Media.Artist ?? "");
+            artistAlbum2.SetValue(TextBlock.TextProperty, Media.Artist ?? "");
         }
         HasArtwork = Media.HasArtwork;
         ArtworkPath = Media.ArtworkPath;

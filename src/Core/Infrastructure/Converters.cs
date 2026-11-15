@@ -1,6 +1,7 @@
 using Avalonia;
 using Avalonia.Data;
 using Avalonia.Data.Converters;
+using Avalonia.Enums;
 using System;
 using System.Globalization;
 

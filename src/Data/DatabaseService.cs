@@ -275,7 +275,7 @@ public class Table<T> : ITable<T> where T : class, new()
     public async Task AddAsync(T entity)
     {
         var tableName = typeof(T).Name;
-        var columns = GetColumns<T>();
+        var columns = GetColumns(entity);
 
         var columnList = string.Join(", ", columns.Select(c => c.Key));
         var parameterList = string.Join(", ", columns.Select(c => $"@{c.Key}"));
@@ -337,14 +337,14 @@ public class Table<T> : ITable<T> where T : class, new()
         return entity;
     }
 
-    private Dictionary<string, object?> GetColumns<TEntity>() where TEntity : class
+    private Dictionary<string, object?> GetColumns<TEntity>(TEntity instance) where TEntity : class
     {
         var columns = new Dictionary<string, object?>();
         var properties = typeof(TEntity).GetProperties();
 
         foreach (var prop in properties)
         {
-            var value = prop.GetValue(new TEntity());
+            var value = prop.GetValue(instance);
             if (value != null || prop.CanWrite)
             {
                 columns[prop.Name] = value;
