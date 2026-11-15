@@ -1,5 +1,7 @@
 # Build artifacts
 bin/
+obj/
+src/bin/
 src/obj/
 
 # NuGet

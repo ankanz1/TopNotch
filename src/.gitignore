@@ -1,2 +1,32 @@
-MIGRATION_STATUS.md
-MIGRATION_PLAN.md
+# Build artifacts
+bin/
+obj/
+*.dll
+*.pdb
+*.cache
+
+# NuGet
+*.packages.json
+*.nuget.props
+*.nuget.targets
+
+# IDE
+.vs/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
