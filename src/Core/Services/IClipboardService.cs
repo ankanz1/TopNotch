@@ -46,7 +46,6 @@ public class ClipboardService : IClipboardService
     private bool _isMonitoring;
     private bool _isRunning;
     private IClipboard? _clipboard;
-    private Window? _parentWindow;
 
     public bool IsRunning => _isRunning;
     public bool IsInitialized => true;
@@ -61,7 +60,6 @@ public class ClipboardService : IClipboardService
     public ClipboardService(int maxHistorySize = 50, Window? parentWindow = null)
     {
         _maxHistorySize = maxHistorySize;
-        _parentWindow = parentWindow;
     }
 
     public async Task StartAsync(CancellationToken cancellationToken = default)
@@ -70,8 +68,8 @@ public class ClipboardService : IClipboardService
         _isRunning = true;
         _cancellationTokenSource = new CancellationTokenSource();
 
-        // Get clipboard from Avalonia application - use DesktopApplicationLifetime
-        if (Application.Current?.ApplicationLifetime is DesktopApplicationLifetime desktopLifetime &&
+        // Get clipboard from Application.Current (Avalonia 12)
+        if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktopLifetime &&
             desktopLifetime.MainWindow is Window mainWindow)
         {
             _clipboard = mainWindow.Clipboard;
@@ -123,15 +121,15 @@ public class ClipboardService : IClipboardService
     {
         try
         {
-            if (_clipboard == null) return;
-
-            // Use Avalonia clipboard API
-            var text = await _clipboard.GetTextAsync().ConfigureAwait(false);
-
-            if (!string.IsNullOrEmpty(text) && text != _lastTextContent)
+            // Use the clipboard instance via ClipboardExtensions
+            if (_clipboard != null)
             {
-                _lastTextContent = text;
-                await AddToHistoryAsync(text).ConfigureAwait(false);
+                var text = await ClipboardExtensions.TryGetTextAsync(_clipboard).ConfigureAwait(false);
+                if (!string.IsNullOrEmpty(text) && text != _lastTextContent)
+                {
+                    _lastTextContent = text;
+                    await AddToHistoryAsync(text).ConfigureAwait(false);
+                }
             }
         }
         catch (Exception ex)
@@ -170,20 +168,20 @@ public class ClipboardService : IClipboardService
         {
             if (_clipboard != null)
             {
-                await _clipboard.SetTextAsync(item.Content).ConfigureAwait(false);
+                await ClipboardExtensions.SetTextAsync(_clipboard, item.Content).ConfigureAwait(false);
             }
-
-            _currentItem.Content = item.Content;
-            _currentItem.ContentType = item.ContentType;
-            _currentItem.Timestamp = DateTime.UtcNow;
-            _currentItem.IsPinned = item.IsPinned;
-
-            ClipboardChanged?.Invoke(this, _currentItem);
         }
         catch (Exception ex)
         {
             System.Diagnostics.Debug.WriteLine($"Copy to clipboard error: {ex.Message}");
         }
+
+        _currentItem.Content = item.Content;
+        _currentItem.ContentType = item.ContentType;
+        _currentItem.Timestamp = DateTime.UtcNow;
+        _currentItem.IsPinned = item.IsPinned;
+
+        ClipboardChanged?.Invoke(this, _currentItem);
 
         await Task.CompletedTask.ConfigureAwait(false);
     }

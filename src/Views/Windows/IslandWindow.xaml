@@ -37,7 +37,6 @@
                 <Ellipse Width="8" Height="8" Fill="{StaticResource PrimaryColor}" />
 
                 <TextBlock
-                    x:Name="TimeDisplay"
                     Text="{Binding CurrentTime}"
                     FontSize="11"
                     Foreground="{StaticResource TextColor}" />
@@ -51,7 +50,7 @@
             <Grid
                 x:Name="ExpandedContent"
                 Grid.Row="1"
-                Visibility="Collapsed">
+                IsVisible="False">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>

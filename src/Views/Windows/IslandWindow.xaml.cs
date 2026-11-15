@@ -1,13 +1,12 @@
 using Avalonia;
 using Avalonia.Animation;
 using Avalonia.Controls;
-using Avalonia.Enums;
 using Avalonia.Input;
 using Avalonia.Markup.Xaml;
 using Avalonia.Threading;
+using Avalonia.VisualTree;
 using System;
 using System.Linq;
-using System.Numerics;
 using System.Threading.Tasks;
 
 namespace TopNotch.Views.Windows;
@@ -54,19 +53,19 @@ public partial class IslandWindow : Window
         // Position at top center of primary screen - Avalonia 12 API
         try
         {
-            // Get primary screen using Avalonia.Screens in Avalonia 12
-            var primaryScreen = Avalonia.Screens.Screen.AllScreens.FirstOrDefault();
+            // Get primary screen using the Screens property on WindowBase (TopLevel)
+            var primaryScreen = this.Screens.Primary;
             if (primaryScreen != null)
             {
-                // Use WorkArea property for screen bounds
-                var workArea = primaryScreen.WorkArea;
+                // Use WorkingArea property for screen bounds
+                var workArea = primaryScreen.WorkingArea;
 
                 // Center horizontally, position at top
                 double x = Math.Max(0, (workArea.Width - Bounds.Width) / 2);
                 double y = Math.Max(0, workArea.Y + 20);
 
-                // Position using Position property (Vector) - Avalonia 12
-                this.Position = new Vector((float)x, (float)y);
+                // Position using Position property (PixelPoint) - Avalonia 12
+                this.Position = new PixelPoint((int)x, (int)y);
                 return;
             }
         }
@@ -76,7 +75,7 @@ public partial class IslandWindow : Window
         }
 
         // Fallback: position near top-left
-        this.Position = new Vector(0, 20);
+        this.Position = new PixelPoint(0, 20);
     }
 
     protected override void OnPointerEntered(PointerEventArgs e)
@@ -106,9 +105,11 @@ public partial class IslandWindow : Window
 
         _isExpanded = true;
 
-        if (GetTemplateChild("ExpandedContent") is Control expandedContent)
+        // Access ExpandedContent Grid in the visual tree
+        var grid = this.FindControl<Grid>("ExpandedContent");
+        if (grid != null)
         {
-            expandedContent.Visibility = Visibility.Visible;
+            grid.IsVisible = true;
         }
 
         // Simple height change
@@ -121,9 +122,11 @@ public partial class IslandWindow : Window
 
         _isExpanded = false;
 
-        if (GetTemplateChild("ExpandedContent") is Control expandedContent)
+        // Access ExpandedContent Grid in the visual tree
+        var grid = this.FindControl<Grid>("ExpandedContent");
+        if (grid != null)
         {
-            expandedContent.Visibility = Visibility.Collapsed;
+            grid.IsVisible = false;
         }
 
         // Simple height change

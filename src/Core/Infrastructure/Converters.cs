@@ -1,25 +1,24 @@
 using Avalonia;
 using Avalonia.Data;
 using Avalonia.Data.Converters;
-using Avalonia.Enums;
 using System;
 using System.Globalization;
 
 namespace TopNotch.Core.Infrastructure;
 
 /// <summary>
-/// Boolean to visibility converter
+/// Boolean to visibility converter (Avalonia uses bool for IsVisible)
 /// </summary>
 public class BoolToVisibilityConverter : IValueConverter
 {
     public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
-        return (value is bool b && b) ? Visibility.Visible : Visibility.Collapsed;
+        return (value is bool b && b);
     }
 
     public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
-        return (value is Visibility v && v == Visibility.Visible);
+        return value is bool b && b;
     }
 }
 
@@ -30,12 +29,12 @@ public class InverseBoolToVisibilityConverter : IValueConverter
 {
     public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
-        return (value is bool b && !b) ? Visibility.Visible : Visibility.Collapsed;
+        return !(value is bool b && b);
     }
 
     public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
-        return (value is Visibility v && v == Visibility.Visible);
+        return !(value is bool b && b);
     }
 }
 
@@ -73,7 +72,7 @@ public class NullToVisibilityConverter : IValueConverter
     public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
         var result = value != null;
-        return Invert ? !result : result ? Visibility.Visible : Visibility.Collapsed;
+        return Invert ? !result : result;
     }
 
     public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
