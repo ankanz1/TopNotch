@@ -14,7 +14,6 @@
         "outputPath": "C:\\Users\\ankan\\OneDrive\\Projects\\TopNotch\\src\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ankan\\OneDrive\\Projects\\TopNotch\\NuGet.Config",
           "C:\\Users\\ankan\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
@@ -49,23 +48,23 @@
           "dependencies": {
             "Avalonia": {
               "target": "Package",
-              "version": "[11.0.10, )"
+              "version": "[12.1.6, )"
             },
             "Avalonia.Desktop": {
               "target": "Package",
-              "version": "[11.0.10, )"
+              "version": "[12.1.6, )"
             },
             "Avalonia.Diagnostics": {
               "target": "Package",
-              "version": "[11.0.10, )"
+              "version": "[12.1.6, )"
             },
             "Avalonia.Fonts.Inter": {
               "target": "Package",
-              "version": "[11.0.10, )"
+              "version": "[12.1.6, )"
             },
             "Avalonia.Themes.Fluent": {
               "target": "Package",
-              "version": "[11.0.10, )"
+              "version": "[12.1.6, )"
             },
             "CommunityToolkit.Mvvm": {
               "target": "Package",
