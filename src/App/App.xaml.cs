@@ -23,9 +23,4 @@ public partial class App : Application
 
         base.OnFrameworkInitializationCompleted();
     }
-
-    public override void OnExit()
-    {
-        base.OnExit();
-    }
 }

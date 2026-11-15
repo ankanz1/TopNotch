@@ -1,7 +1,8 @@
 using Avalonia;
 using Avalonia.Data;
-using Avalonia.Interactivity;
+using Avalonia.Data.Converters;
 using System;
+using System.Globalization;
 
 namespace TopNotch.Core.Infrastructure;
 
