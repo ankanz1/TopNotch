@@ -33,7 +33,7 @@ public partial class SettingsCard : UserControl
     private static void OnHeaderChanged(Avalonia.AvaloniaObject d, AvaloniaProperty e, object? old, object? newvalue)
     {
         var control = (SettingsCard)d;
-        var headerText = control.FindControl<TextBlock>("HeaderText");
+        var headerText = control.GetTemplateChild("HeaderText") as TextBlock;
         if (headerText != null)
         {
             headerText.Text = newvalue?.ToString() ?? string.Empty;

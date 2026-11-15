@@ -4,7 +4,6 @@ using Avalonia.Controls.Primitives;
 using Avalonia.Markup.Xaml;
 using CommunityToolkit.Mvvm.ComponentModel;
 using System;
-using System.Globalization;
 
 namespace TopNotch.Views.Controls;
 
