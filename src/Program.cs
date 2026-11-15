@@ -9,6 +9,7 @@ class Program
     // Entry point - Avalonia application bootstrapping
     public static void Main(string[] args)
     {
+        Console.WriteLine("TopNotch starting...");
         BuildAvaloniaApp()
             .StartWithClassicDesktopLifetime(args);
     }

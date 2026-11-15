@@ -13,11 +13,10 @@
     ShowTitleBar="False">
 
     <Border
-        Background="{StaticResource IslandBrush}"
+        Background="Black"
         BorderBrush="{StaticResource HighlightColor}"
-        BorderThickness="0,0,0,1"
-        CornerRadius="16"
-        Opacity="0.95">
+        BorderThickness="1"
+        CornerRadius="16">
 
         <Grid>
             <Grid.RowDefinitions>

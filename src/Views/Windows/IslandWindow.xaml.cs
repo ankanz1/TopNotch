@@ -23,6 +23,10 @@ public partial class IslandWindow : Window
     {
         InitializeComponent();
         InitializeTimer();
+
+        // Ensure window is visible and properly positioned
+        this.IsVisible = true;
+        this.Topmost = true;
     }
 
     public string CurrentTime { get; set; } = DateTime.Now.ToString("h:mm tt");
