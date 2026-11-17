@@ -81,8 +81,28 @@ Or run the published exe directly (if you publish):
 & "C:\Users\ankan\OneDrive\Projects\TopNotch\src\bin\Debug\net8.0\TopNotch.exe"
 ```
 
-### If Nothing Works:
-If you're on a managed device (work/school computer), contact your IT administrator to:
-1. Add the project folder to Windows Defender exclusions for **all users**, OR
-2. Temporarily disable Smart App Control for development
-3. Whitelist: `C:\Program Files\dotnet\dotnet.exe` and the entire `src\bin` folder
+### If Nothing Works (Managed Device or Full Smart App Control):
+
+**Check if you're on a managed device:**
+```powershell
+# Check Group Policy status
+gpresult /R  # Look for "SmartScreen" or "App Control" in results
+```
+
+**If managed - contact IT admin with this request:**
+```
+Request: Disable Smart App Control / Windows Defender SmartScreen
+Scope: Local computer
+Setting: Turn off Windows Defender SmartScreen
+Impact: Required for development of signed application
+```
+
+**Alternatively - publish a self-contained package:**
+```powershell
+# This creates a signed, standalone executable
+dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true
+```
+
+**Last resort - use Windows Sandbox:**
+1. Enable Windows Sandbox in Windows Features
+2. Run the app in isolated container
