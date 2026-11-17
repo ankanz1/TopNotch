@@ -8,17 +8,24 @@ Windows 11's Smart App Control (formerly Windows Defender SmartScreen/App Contro
 
 **This is the fastest solution for development:**
 
+**Option 1: GUI Method (click method):**
 1. Open **Windows Security** → **Virus & threat protection** → **Exclusions**
 2. Click **Add or remove exclusions** → **Add an exclusion**
-3. Choose **Folder** and add:
-   ```
-   C:\Users\ankan\OneDrive\Projects\TopNotch
-   ```
-4. Or choose **Process** and add:
-   ```
-   TopNotch.exe
-   dotnet.exe
-   ```
+3. Add **BOTH**:
+   - **Folder**: `C:\Users\ankan\OneDrive\Projects\TopNotch`
+   - **File**: `C:\Users\ankan\OneDrive\Projects\TopNotch\src\bin\Debug\net8.0\TopNotch.exe`
+
+**Option 2: PowerShell Method (recommended):**
+Open PowerShell as **Administrator** and run:
+```powershell
+Add-MpPreference -ExclusionPath "C:\Users\ankan\OneDrive\Projects\TopNotch"
+Add-MpPreference -ExclusionPath "C:\Users\ankan\OneDrive\Projects\TopNotch\src\bin\Debug\net8.0"
+```
+
+Then restart PowerShell or run:
+```powershell
+$env:PATH += ";C:\Program Files\dotnet"
+```
 
 ### Alternative Solutions
 
@@ -62,7 +69,20 @@ IslandWindow created, starting position: (x, y)
 IslandWindow.Show() called
 ```
 
+### Expected Windows PowerShell Commands After Exclusion
+Once exclusions are added, open a **new** PowerShell and run:
+```powershell
+cd "C:\Users\ankan\OneDrive\Projects\TopNotch\src"
+& "C:\Program Files\dotnet\dotnet.exe" run
+```
+
+Or run the published exe directly (if you publish):
+```powershell
+& "C:\Users\ankan\OneDrive\Projects\TopNotch\src\bin\Debug\net8.0\TopNotch.exe"
+```
+
 ### If Nothing Works:
 If you're on a managed device (work/school computer), contact your IT administrator to:
-1. Add the project folder to Windows Defender exclusions, OR
+1. Add the project folder to Windows Defender exclusions for **all users**, OR
 2. Temporarily disable Smart App Control for development
+3. Whitelist: `C:\Program Files\dotnet\dotnet.exe` and the entire `src\bin` folder
