@@ -50,6 +50,11 @@ public partial class IslandWindow : Window
     {
         base.OnOpened(e);
         PositionWindow();
+
+        // Force window to be visible and bring to front
+        this.IsVisible = true;
+        this.Topmost = true;
+        this.BringIntoView();
     }
 
     private void PositionWindow()
@@ -64,9 +69,15 @@ public partial class IslandWindow : Window
                 // Use WorkingArea property for screen bounds
                 var workArea = primaryScreen.WorkingArea;
 
-                // Center horizontally, position at top
+                // Center horizontally, position at top of working area
                 double x = Math.Max(0, (workArea.Width - Bounds.Width) / 2);
                 double y = Math.Max(0, workArea.Y + 20);
+
+                // Ensure window is within screen bounds
+                double maxX = workArea.Width - Bounds.Width;
+                double maxY = workArea.Height - Bounds.Height;
+                x = Math.Min(x, Math.Max(0, maxX));
+                y = Math.Min(y, Math.Max(0, maxY));
 
                 // Position using Position property (PixelPoint) - Avalonia 12
                 this.Position = new PixelPoint((int)x, (int)y);
