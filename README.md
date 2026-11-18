@@ -16,4 +16,3 @@ TopNotch is a Dynamic Island application for Windows, now migrated to Avalonia U
 - MIGRATION_PLAN.md
 
 ---
-Co-Authored-By: Claude Code <noreply@anthropic.com>
