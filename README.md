@@ -229,6 +229,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-🤖 Generated with [Claude Code](https://claude.com/claude-code)
-
 *Built with ❤️ for Windows users who want a minimal, elegant media display widget.*
