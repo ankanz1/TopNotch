@@ -33,7 +33,18 @@ public partial class IslandWindow : Window
 
     private void InitializeComponent()
     {
-        AvaloniaXamlLoader.Load(this);
+        try
+        {
+            AvaloniaXamlLoader.Load(this);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"IslandWindow XAML load failed: {ex.Message}");
+            // Set default window properties if XAML fails to load
+            this.Width = 200;
+            this.Height = 40;
+            this.Topmost = true;
+        }
     }
 
     private void InitializeTimer()

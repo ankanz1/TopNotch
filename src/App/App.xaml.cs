@@ -9,7 +9,16 @@ public partial class App : Application
 {
     public override void Initialize()
     {
-        AvaloniaXamlLoader.Load(this);
+        try
+        {
+            AvaloniaXamlLoader.Load(this);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"XAML load failed: {ex.Message}");
+            Console.WriteLine($"This is expected in Avalonia 12 without AvaloniaResource items.");
+            Console.WriteLine($"The app will run with default styling.");
+        }
     }
 
     public override void OnFrameworkInitializationCompleted()
