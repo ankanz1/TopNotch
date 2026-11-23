@@ -17,6 +17,7 @@ A lightweight, always-on-top media display window built with **Avalonia UI** (.N
 
 ## Screenshots
 
+
 <img src="docs/screenshot-compact.png" alt="Compact view showing time" width="300" style="border: 1px solid #ccc; border-radius: 8px; margin-right: 10px;">
 <img src="docs/screenshot-expanded.png" alt="Expanded view with media controls" width="300" style="border: 1px solid #ccc; border-radius: 8px;">
 
@@ -228,7 +229,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - 💡 **Feature Requests**: Open an Issue with "Enhancement" label
 
 ---
-
-🤖 Generated with [Claude Code](https://claude.com/claude-code)
 
 *Built with ❤️ for Windows users who want a minimal, elegant media display widget.*
