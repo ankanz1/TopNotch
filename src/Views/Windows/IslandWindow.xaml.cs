@@ -57,13 +57,13 @@ public partial class IslandWindow : Window
 
     private void BuildUI()
     {
-        // Main border - NO GLASS, NO CORNERS, SOLID BACKGROUND
+        // Main border - NO GLASS, CURVED BOTTOM EDGE, SOLID BACKGROUND
         _mainBorder = new Border
         {
             Background = new SolidColorBrush(Color.FromArgb(235, 18, 18, 18)),
             BorderBrush = new SolidColorBrush(Color.FromArgb(90, 255, 255, 255)),
             BorderThickness = new Thickness(1),
-            CornerRadius = new CornerRadius(0), // No rounded corners
+            CornerRadius = new CornerRadius(0, 0, 16, 16), // Curved bottom corners only
             Padding = new Thickness(6),
         };
 
@@ -141,13 +141,13 @@ public partial class IslandWindow : Window
             IsVisible = false
         };
 
-        // Wrap dashboard tabs in a container
+        // Wrap dashboard tabs in a container - curved bottom edge to match main window
         _dashboardTabsContainer = new Border
         {
             Background = new SolidColorBrush(Color.FromArgb(30, 255, 255, 255)),
             BorderBrush = new SolidColorBrush(Color.FromArgb(50, 255, 255, 255)),
             BorderThickness = new Thickness(1),
-            CornerRadius = new CornerRadius(0), // No rounded corners
+            CornerRadius = new CornerRadius(4, 4, 12, 12), // Top corners slightly rounded, bottom curved
             Padding = new Thickness(8),
             IsVisible = false
         };
@@ -331,7 +331,7 @@ public partial class IslandWindow : Window
             Background = new SolidColorBrush(Color.FromArgb(50, 255, 255, 255)),
             BorderBrush = new SolidColorBrush(Color.FromArgb(60, 255, 255, 255)),
             BorderThickness = new Thickness(1),
-            CornerRadius = new CornerRadius(0), // No rounded corners
+            CornerRadius = new CornerRadius(4, 4, 0, 0), // Rounded top corners only
             Padding = new Thickness(8),
             Width = 120,
             Child = sp
@@ -363,7 +363,7 @@ public partial class IslandWindow : Window
         return new Border
         {
             Background = new SolidColorBrush(Color.FromArgb(128, 40, 40, 40)),
-            CornerRadius = new CornerRadius(0), // No rounded corners
+            CornerRadius = new CornerRadius(2), // Slightly rounded buttons
             Width = 28,
             Height = 28,
             Child = new TextBlock
