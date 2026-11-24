@@ -20,6 +20,7 @@ public partial class IslandWindow : Window
     private TextBlock _dateTextBlock = null!;
     private TextBlock _songTitleTextBlock = null!;
     private TextBlock _artistTextBlock = null!;
+    private TextBlock _lyricsTextBlock = null!;
     private Border _mainBorder = null!;
     private StackPanel _dashboardsContainer = null!;
     private ScrollViewer _scrollContainer = null!;
@@ -32,11 +33,24 @@ public partial class IslandWindow : Window
     private bool _showCalendar = true;
     private bool _showWeather = true;
     private bool _showSystemMonitor = true;
+    private bool _showLyrics = false;
 
     private List<Border> _dashboardTabs = new();
     private int _currentDashboardIndex = 0;
 
     private bool _hoveredOverWindow = false;
+
+    // System monitoring state
+    private double _cpuUsage = 24.0;
+    private double _ramUsage = 8.2;
+    private double _diskUsage = 45.0;
+
+    // Media state
+    private bool _isPlaying = true;
+    private double _volume = 70.0;
+    private string _currentSong = "Song Title";
+    private string _currentArtist = "Artist Name";
+    private string _currentLyrics = "";
 
     public IslandWindow()
     {
@@ -46,7 +60,7 @@ public partial class IslandWindow : Window
         this.WindowDecorations = WindowDecorations.None;
         this.Topmost = true;
         this.ShowInTaskbar = false;
-        this.Background = new SolidColorBrush(Color.FromArgb(180, 20, 20, 20));
+        this.Background = new SolidColorBrush(Color.FromArgb(180, 12, 12, 15));
         this.Width = 220;
         this.Height = CompactHeight;
 
@@ -58,17 +72,18 @@ public partial class IslandWindow : Window
     private void BuildUI()
     {
         // Main border - NO GLASS, CURVED BOTTOM EDGE, SOLID BACKGROUND
+        // Modern dark theme with subtle gradient effect using solid colors
         _mainBorder = new Border
         {
-            Background = new SolidColorBrush(Color.FromArgb(235, 18, 18, 18)),
-            BorderBrush = new SolidColorBrush(Color.FromArgb(90, 255, 255, 255)),
+            Background = new SolidColorBrush(Color.FromArgb(235, 15, 15, 20)),
+            BorderBrush = new SolidColorBrush(Color.FromArgb(120, 0, 183, 255)),
             BorderThickness = new Thickness(1),
             CornerRadius = new CornerRadius(0, 0, 16, 16), // Curved bottom corners only
             Padding = new Thickness(6),
         };
 
         var mainGrid = new Grid();
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < 10; i++)
             mainGrid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
 
         // Time display
@@ -78,14 +93,15 @@ public partial class IslandWindow : Window
             FontWeight = FontWeight.SemiBold,
             Foreground = new SolidColorBrush(Colors.White),
             Text = CurrentTime,
-            VerticalAlignment = Avalonia.Layout.VerticalAlignment.Center
+            VerticalAlignment = Avalonia.Layout.VerticalAlignment.Center,
+            FontFamily = new Avalonia.Media.FontFamily("Segoe UI")
         };
 
         // Date display
         _dateTextBlock = new TextBlock
         {
             FontSize = 9,
-            Foreground = new SolidColorBrush(Color.FromArgb(180, 255, 255, 255)),
+            Foreground = new SolidColorBrush(Color.FromArgb(180, 200, 200, 220)),
             Text = DateTime.Now.ToString("MMM dd, yyyy"),
             IsVisible = false,
             HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Center,
@@ -98,24 +114,42 @@ public partial class IslandWindow : Window
             FontSize = 12,
             FontWeight = FontWeight.SemiBold,
             Foreground = new SolidColorBrush(Colors.White),
-            Text = "Not Playing",
+            Text = _currentSong,
             IsVisible = false,
             MaxLines = 1,
-            TextWrapping = TextWrapping.Wrap
+            TextWrapping = TextWrapping.Wrap,
+            FontFamily = new Avalonia.Media.FontFamily("Segoe UI")
         };
 
         _artistTextBlock = new TextBlock
         {
             FontSize = 9,
-            Foreground = new SolidColorBrush(Color.FromArgb(180, 255, 255, 255)),
-            Text = "",
+            Foreground = new SolidColorBrush(Color.FromArgb(180, 180, 180, 200)),
+            Text = _currentArtist,
             IsVisible = false
         };
 
-        // Compact header (pill bar)
+        // Lyrics display
+        _lyricsTextBlock = new TextBlock
+        {
+            FontSize = 9,
+            Foreground = new SolidColorBrush(Color.FromArgb(200, 220, 220, 240)),
+            Text = _currentLyrics,
+            IsVisible = false,
+            HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Center,
+            Margin = new Thickness(4, 0, 4, 4),
+            TextWrapping = TextWrapping.Wrap,
+            MaxLines = 2,
+            FontStyle = FontStyle.Italic,
+            FontFamily = new Avalonia.Media.FontFamily("Segoe UI")
+        };
+
+        // Compact header (pill bar) - Futuristic style with glow
         _compactHeader = new Border
         {
-            Background = new SolidColorBrush(Color.FromRgb(10, 10, 10)),
+            Background = new SolidColorBrush(Color.FromArgb(240, 25, 25, 30)),
+            BorderBrush = new SolidColorBrush(Color.FromArgb(100, 0, 183, 255)),
+            BorderThickness = new Thickness(1),
             CornerRadius = new CornerRadius(10), // Rounded pill shape
             Padding = new Thickness(8, 4, 8, 4),
             Margin = new Thickness(0, 0, 0, 2),
@@ -127,7 +161,12 @@ public partial class IslandWindow : Window
                 Spacing = 6,
                 Children =
                 {
-                    new Ellipse { Width = 6, Height = 6, Fill = new SolidColorBrush(Color.FromRgb(0, 183, 255)), VerticalAlignment = Avalonia.Layout.VerticalAlignment.Center },
+                    new Ellipse
+                    {
+                        Width = 6,
+                        Height = 6,
+                        Fill = new SolidColorBrush(Color.FromRgb(0, 183, 255))
+                    },
                     _timeTextBlock
                 }
             }
@@ -144,10 +183,10 @@ public partial class IslandWindow : Window
         // Wrap dashboard tabs in a container - curved bottom edge to match main window
         _dashboardTabsContainer = new Border
         {
-            Background = new SolidColorBrush(Color.FromArgb(30, 255, 255, 255)),
-            BorderBrush = new SolidColorBrush(Color.FromArgb(50, 255, 255, 255)),
+            Background = new SolidColorBrush(Color.FromArgb(40, 30, 30, 40)),
+            BorderBrush = new SolidColorBrush(Color.FromArgb(80, 100, 100, 120)),
             BorderThickness = new Thickness(1),
-            CornerRadius = new CornerRadius(4, 4, 12, 12), // Top corners slightly rounded, bottom curved
+            CornerRadius = new CornerRadius(4, 4, 12, 12),
             Padding = new Thickness(8),
             IsVisible = false
         };
@@ -156,11 +195,12 @@ public partial class IslandWindow : Window
         // Scroll container for dashboard tabs - HORIZONTAL SCROLL ENABLED
         _scrollContainer = new ScrollViewer
         {
-            HorizontalScrollBarVisibility = Avalonia.Controls.Primitives.ScrollBarVisibility.Auto, // Allow horizontal scroll
+            HorizontalScrollBarVisibility = Avalonia.Controls.Primitives.ScrollBarVisibility.Auto,
             VerticalScrollBarVisibility = Avalonia.Controls.Primitives.ScrollBarVisibility.Hidden,
             Content = _dashboardTabsContainer,
             Margin = new Thickness(0, 4, 0, 6),
-            IsVisible = false
+            IsVisible = false,
+            Background = new SolidColorBrush(Color.Transparent)
         };
 
         // Build dashboard tabs
@@ -169,7 +209,6 @@ public partial class IslandWindow : Window
         // Play/Pause button as separate element for click handling
         var playPauseControl = BuildControlButton("⏸", "#00BCD4");
         _playPauseButton = playPauseControl as Border ?? new Border();
-        // Add click handler for play/pause toggle
         _playPauseButton.PointerPressed += PlayPause_Click;
 
         // Music controls panel
@@ -193,7 +232,11 @@ public partial class IslandWindow : Window
         _artistTextBlock.Margin = new Thickness(8, 0, 8, 4);
         mainGrid.Children.Add(_artistTextBlock);
 
-        Grid.SetRow(_musicControlsPanel, 5);
+        // Lyrics line
+        Grid.SetRow(_lyricsTextBlock, 5);
+        mainGrid.Children.Add(_lyricsTextBlock);
+
+        Grid.SetRow(_musicControlsPanel, 6);
         mainGrid.Children.Add(_musicControlsPanel);
 
         _mainBorder.Child = mainGrid;
@@ -223,7 +266,6 @@ public partial class IslandWindow : Window
 
         if (_isExpanded)
         {
-            // Use OS-native smooth dragging - buttery smooth at 60Hz+
             this.BeginMoveDrag(e);
         }
         else
@@ -239,13 +281,10 @@ public partial class IslandWindow : Window
         var delta = e.Delta.Y;
         if (Math.Abs(delta) < 0.1) return;
 
-        // Mouse wheel: scroll horizontally between dashboard tabs
         var direction = delta > 0 ? -1 : 1;
         _currentDashboardIndex = ((_currentDashboardIndex + direction) + _dashboardTabs.Count) % _dashboardTabs.Count;
 
         UpdateActiveTabHighlight();
-
-        // Simple scroll to target tab
         ScrollToTargetTab();
         e.Handled = true;
     }
@@ -255,8 +294,6 @@ public partial class IslandWindow : Window
     private void ScrollToTargetTab()
     {
         if (_scrollContainer == null || _dashboardTabs.Count == 0 || _currentDashboardIndex < 0) return;
-
-        // Simple scroll to tab index
         var targetX = -_currentDashboardIndex * TabWidth;
         _scrollContainer.Offset = new Vector(targetX, 0);
     }
@@ -270,7 +307,8 @@ public partial class IslandWindow : Window
         {
             var tab = CreateTabCard("Calendar", new[] {
                 BuildWidgetStat("Today", DateTime.Now.ToString("ddd, MMM dd"), "#4CAF50"),
-                BuildWidgetStat("Event", "Meeting @ 2PM", "#8BC34A")
+                BuildWidgetStat("Event", "Meeting @ 2PM", "#8BC34A"),
+                BuildWidgetStat("Next", "Fri", "#9C27B0")
             });
             _dashboardTabs.Add(tab);
             _dashboardsContainer.Children.Add(tab);
@@ -290,9 +328,9 @@ public partial class IslandWindow : Window
         if (_showSystemMonitor)
         {
             var tab = CreateTabCard("System", new[] {
-                BuildWidgetStat("CPU", "24%", "#F44336"),
-                BuildWidgetStat("RAM", "8.2GB", "#2196F3"),
-                BuildWidgetStat("Disk", "45%", "#9C27B0")
+                BuildWidgetStat("CPU", $"{_cpuUsage:0}%", "#F44336"),
+                BuildWidgetStat("RAM", $"{_ramUsage}GB / 16GB", "#2196F3"),
+                BuildWidgetStat("Disk", $"{_diskUsage}%", "#9C27B0")
             });
             _dashboardTabs.Add(tab);
             _dashboardsContainer.Children.Add(tab);
@@ -301,9 +339,9 @@ public partial class IslandWindow : Window
         if (_showMusicControls)
         {
             var tab = CreateTabCard("Media", new[] {
-                BuildWidgetStat("Artist", "Artist Name", "#00BCD4"),
-                BuildWidgetStat("Title", "Song Title", "#E91E63"),
-                BuildWidgetStat("Volume", "70%", "#FF9800")
+                BuildWidgetStat("Artist", _currentArtist, "#00BCD4"),
+                BuildWidgetStat("Title", _currentSong, "#E91E63"),
+                BuildWidgetStat("Vol", $"{_volume}%", "#FF9800")
             });
             _dashboardTabs.Add(tab);
             _dashboardsContainer.Children.Add(tab);
@@ -320,7 +358,8 @@ public partial class IslandWindow : Window
             Text = title,
             FontSize = 10,
             FontWeight = FontWeight.Bold,
-            Foreground = new SolidColorBrush(Colors.White)
+            Foreground = new SolidColorBrush(Colors.White),
+            FontFamily = new Avalonia.Media.FontFamily("Segoe UI Semibold")
         });
 
         foreach (var item in items)
@@ -328,10 +367,10 @@ public partial class IslandWindow : Window
 
         return new Border
         {
-            Background = new SolidColorBrush(Color.FromArgb(50, 255, 255, 255)),
-            BorderBrush = new SolidColorBrush(Color.FromArgb(60, 255, 255, 255)),
+            Background = new SolidColorBrush(Color.FromArgb(60, 255, 255, 255)),
+            BorderBrush = new SolidColorBrush(Color.FromArgb(80, 255, 255, 255)),
             BorderThickness = new Thickness(1),
-            CornerRadius = new CornerRadius(4, 4, 0, 0), // Rounded top corners only
+            CornerRadius = new CornerRadius(4, 4, 0, 0),
             Padding = new Thickness(8),
             Width = 120,
             Child = sp
@@ -343,7 +382,7 @@ public partial class IslandWindow : Window
         var panel = new StackPanel
         {
             Orientation = Avalonia.Layout.Orientation.Horizontal,
-            Spacing = 12,
+            Spacing = 10,
             IsVisible = false,
             HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Center,
             Margin = new Thickness(0, 6, 0, 4)
@@ -362,14 +401,17 @@ public partial class IslandWindow : Window
     {
         return new Border
         {
-            Background = new SolidColorBrush(Color.FromArgb(128, 40, 40, 40)),
-            CornerRadius = new CornerRadius(2), // Slightly rounded buttons
-            Width = 28,
-            Height = 28,
+            Background = new SolidColorBrush(Color.FromArgb(180, 45, 45, 55)),
+            BorderBrush = new SolidColorBrush(Color.FromArgb(60, 255, 255, 255)),
+            BorderThickness = new Thickness(1),
+            CornerRadius = new CornerRadius(4),
+            Width = 30,
+            Height = 30,
             Child = new TextBlock
             {
                 Text = icon,
                 FontSize = 14,
+                FontWeight = FontWeight.SemiBold,
                 Foreground = new SolidColorBrush(Color.Parse(fgColor)),
                 HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Center,
                 VerticalAlignment = Avalonia.Layout.VerticalAlignment.Center
@@ -388,15 +430,17 @@ public partial class IslandWindow : Window
                 {
                     Text = $"{label}:",
                     FontSize = 8,
-                    Foreground = new SolidColorBrush(Color.FromArgb(150, 255, 255, 255)),
-                    Width = 32
+                    Foreground = new SolidColorBrush(Color.FromArgb(180, 180, 180, 200)),
+                    Width = 32,
+                    FontFamily = new Avalonia.Media.FontFamily("Segoe UI")
                 },
                 new TextBlock
                 {
                     Text = value,
                     FontSize = 8,
                     FontWeight = FontWeight.SemiBold,
-                    Foreground = new SolidColorBrush(Color.Parse(colorHex))
+                    Foreground = new SolidColorBrush(Color.Parse(colorHex)),
+                    FontFamily = new Avalonia.Media.FontFamily("Segoe UI Semibold")
                 }
             }
         };
@@ -406,7 +450,8 @@ public partial class IslandWindow : Window
     {
         if (sender is Border border && border.Child is TextBlock textBlock)
         {
-            textBlock.Text = textBlock.Text == "⏸" ? "▶" : "⏸";
+            _isPlaying = !_isPlaying;
+            textBlock.Text = _isPlaying ? "⏸" : "▶";
         }
         e.Handled = true;
     }
@@ -416,15 +461,13 @@ public partial class IslandWindow : Window
         for (int i = 0; i < _dashboardTabs.Count; i++)
         {
             bool isActive = (i == _currentDashboardIndex);
-            _dashboardTabs[i].Opacity = isActive ? 1.0 : 0.4;
+            _dashboardTabs[i].Opacity = isActive ? 1.0 : 0.5;
             _dashboardTabs[i].BorderBrush = isActive
                 ? new SolidColorBrush(Color.FromRgb(0, 183, 255))
-                : new SolidColorBrush(Color.FromArgb(60, 255, 255, 255));
+                : new SolidColorBrush(Color.FromArgb(60, 180, 180, 200));
         }
     }
 
-    // FIXED: Hover expansion logic - expand when mouse enters expanded area,
-    // collapse only when mouse leaves entirely
     private void OnWindowPointerEntered(object? sender, PointerEventArgs e)
     {
         _hoveredOverWindow = true;
@@ -438,11 +481,8 @@ public partial class IslandWindow : Window
     {
         _hoveredOverWindow = false;
 
-        // Don't collapse if we're still inside the expanded area
-        // Use a small delay to prevent flickering
         if (!_isExpanded) return;
 
-        // Schedule collapse on next tick to ensure we're truly outside
         Dispatcher.UIThread.Post(() =>
         {
             if (!_hoveredOverWindow && _isExpanded)
@@ -464,6 +504,7 @@ public partial class IslandWindow : Window
         _scrollContainer.IsVisible = true;
         _musicControlsPanel.IsVisible = _showMusicControls;
         _dashboardTabsContainer.IsVisible = true;
+        _lyricsTextBlock.IsVisible = _showLyrics;
 
         this.Height = ExpandedHeight;
     }
@@ -480,6 +521,7 @@ public partial class IslandWindow : Window
         _scrollContainer.IsVisible = false;
         _musicControlsPanel.IsVisible = false;
         _dashboardTabsContainer.IsVisible = false;
+        _lyricsTextBlock.IsVisible = false;
 
         this.Height = CompactHeight;
     }
@@ -499,13 +541,47 @@ public partial class IslandWindow : Window
 
     private void InitializeTimer()
     {
+        // Main update timer (1 second interval)
         var timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(1) };
         timer.Tick += (s, e) =>
         {
             CurrentTime = DateTime.Now.ToString("h:mm:ss tt");
             _timeTextBlock.Text = CurrentTime;
+
+            // Simulate system stats updates
+            _cpuUsage = (_cpuUsage + 0.5) % 100;
+            _ramUsage = 8.0 + (_ramUsage * 0.01);
+            if (_ramUsage > 16.0) _ramUsage = 8.0;
+            _diskUsage = (_diskUsage + 0.3) % 100;
         };
         timer.Start();
+
+        // Lyrics line update timer (simulated live lyrics)
+        var lyricsTimer = new DispatcherTimer { Interval = TimeSpan.FromMilliseconds(3000) };
+        lyricsTimer.Tick += (s, e) =>
+        {
+            if (_isExpanded && _showLyrics)
+            {
+                UpdateLiveLyrics();
+            }
+        };
+        lyricsTimer.Start();
+    }
+
+    private void UpdateLiveLyrics()
+    {
+        var lyricsLines = new[]
+        {
+            "I'm on my way, I'm on my way",
+            "To the place where we both belong",
+            "I'm on my way, I'm on my way",
+            "With you, with you, all night long",
+            "Oh-oh, oh-oh, oh-oh",
+            "Oh-oh, oh-oh, oh-oh",
+            "I'm on my way"
+        };
+        _currentLyrics = lyricsLines[new Random().Next(lyricsLines.Length)];
+        _lyricsTextBlock.Text = _currentLyrics;
     }
 
     protected override void OnOpened(EventArgs e)
@@ -533,11 +609,59 @@ public partial class IslandWindow : Window
         this.Position = new PixelPoint(0, 20);
     }
 
-    public void SetMediaInfo(string title, string artist = "")
+    // Public API for external integrations
+    public void SetMediaInfo(string title, string artist = "", double volume = 70.0)
     {
-        _songTitleTextBlock.Text = title ?? "Not Playing";
-        _artistTextBlock.Text = artist ?? "";
+        _currentSong = title ?? "Not Playing";
+        _currentArtist = artist ?? "";
+        _volume = volume;
+        _songTitleTextBlock.Text = _currentSong;
+        _artistTextBlock.Text = _currentArtist;
         _songTitleTextBlock.IsVisible = !string.IsNullOrEmpty(title);
         _artistTextBlock.IsVisible = !string.IsNullOrEmpty(artist);
+    }
+
+    public void SetLyricsVisible(bool visible)
+    {
+        _showLyrics = visible;
+        _lyricsTextBlock.IsVisible = visible;
+    }
+
+    public void SetCurrentLyrics(string lyrics)
+    {
+        _currentLyrics = lyrics ?? "";
+        _lyricsTextBlock.Text = _currentLyrics;
+    }
+
+    public void UpdateSystemStats(double cpu, double ram, double disk)
+    {
+        _cpuUsage = cpu;
+        _ramUsage = ram;
+        _diskUsage = disk;
+    }
+
+    public void TogglePlayPause()
+    {
+        _isPlaying = !_isPlaying;
+        if (_playPauseButton?.Child is TextBlock textBlock)
+        {
+            textBlock.Text = _isPlaying ? "⏸" : "▶";
+        }
+    }
+
+    public void NextTrack()
+    {
+        // Simulate next track
+        _currentSong = "Next Song";
+        _currentArtist = "Next Artist";
+        _songTitleTextBlock.Text = _currentSong;
+    }
+
+    public void PreviousTrack()
+    {
+        // Simulate previous track
+        _currentSong = "Previous Song";
+        _currentArtist = "Previous Artist";
+        _songTitleTextBlock.Text = _currentSong;
     }
 }

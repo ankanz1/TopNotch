@@ -1,50 +1,9 @@
+<!-- Island.xaml - This is a template for future use with docking support.
+     Currently IslandWindow.xaml.cs builds UI programmatically without XAML. -->
 <UserControl
     x:Class="TopNotch.Views.Windows.Island"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:TopNotch.Views.Windows">
-
-    <Border
-        Background="{StaticResource IslandBrush}"
-        BorderBrush="{StaticResource HighlightColor}"
-        BorderThickness="1"
-        CornerRadius="12"
-        Padding="12">
-
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-
-            <!-- Compact Header -->
-            <StackPanel
-                x:Name="CompactHeader"
-                Grid.Row="0"
-                Orientation="Horizontal"
-                VerticalAlignment="Center"
-                Margin="0,0,0,8"
-                Spacing="4">
-
-                <Ellipse Width="8" Height="8" Fill="{StaticResource PrimaryColor}"/>
-
-                <TextBlock
-                    x:Name="TimeDisplay"
-                    Text="{Binding CurrentTime}"
-                    Foreground="{StaticResource TextColor}"/>
-            </StackPanel>
-
-            <!-- Expanded Content -->
-            <Grid
-                x:Name="ExpandedContent"
-                Grid.Row="1"
-                IsVisible="False">
-
-                <ContentPresenter
-                    Content="{Binding CurrentView}"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"/>
-            </Grid>
-        </Grid>
-    </Border>
+    <TextBlock Text="Island Template" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 </UserControl>
